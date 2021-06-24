@@ -1,222 +1,36 @@
-/*
- * GLUT Shapes Demo
- *
- * Written by Nigel Stewart November 2003
- *
- * This program is test harness for the sphere, cone
- * and torus shapes in GLUT.
- *
- * Spinning wireframe and smooth shaded shapes are
- * displayed until the ESC or q key is pressed.  The
- * number of geometry stacks and slices can be adjusted
- * using the + and - keys.
- */
-#include <windows.h>
-#ifdef __APPLE__
-#include <GLUT/glut.h>
-#else
+#include<windows.h>
 #include <GL/glut.h>
-#endif
-
 #include <stdlib.h>
-
-void init(void);
-void tampil(void);
-void keyboard(unsigned char,int,int);
-void ukuran(int,int);
-void mouseMotion(int x, int y);
-void mouse(int button, int state, int x, int y);
-
-float xrot = 0.0f;
-float yrot = 0.0f;
-float zrot = 0.0f;
-float xx= 0.0;
-float yy = 0.0;
-float zz = 0.0;
-float xdiff = 0.0f;
-float ydiff = 0.0f;
-bool mousDown = false;
-int is_depth;
+#include <stdio.h>
 
 
-int main(int argc,char**argv)
+void Myinit(void);
+void Display(void);
+
+
+main(int argc, char** argv)
 {
-
-    glutInit(&argc,argv);
-    glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB);
-    glutInitWindowSize(800,600);
-    glutInitWindowPosition(250,80);
-    glutCreateWindow("Frankie - 672019165");
-    init();
-
-    glutDisplayFunc(tampil);
-    glutKeyboardFunc(keyboard);
-    glutReshapeFunc(ukuran);
-    glutMouseFunc(mouse);
-    glutMotionFunc(mouseMotion);
-
-    glutIdleFunc(tampil);
-    glutMainLoop();
-    return 0;
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_SINGLE| GLUT_RGB);
+	glutInitWindowSize(600,480);
+	glutInitWindowPosition(350,150);
+	glutCreateWindow("MALL");
+	glutDisplayFunc(Display);
+	myInit();
+	glutMainLoop();
 }
 
-void init(void)
-{
+void Myinit(void){
 
-    glClearColor(0.0,0.0,0.0,0.0);
-    glMatrixMode(GL_PROJECTION);
-
-    glEnable(GL_DEPTH_TEST);
-    is_depth = 1;
-    glMatrixMode(GL_MODELVIEW);
-    glPointSize(9.0);
-    glLineWidth(6.0f);
+  glClearColor(1.0,1.0,1.0,0.0);
+  glColor3f(0.0f, 0.0f, 0.0f);
+ 	glPointSize(4.0);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluOrtho2D(0.0, 20.0, 0.0, 20.0);
 
 }
+void Display(void){
 
-void tampil(void)
-{
-
-    if(is_depth)
-        glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
-
-    else
-    glClear(GL_COLOR_BUFFER_BIT);
-
-        glLoadIdentity();
-        gluLookAt(0.0f,0.0f,3.0f,0.0f,0.0f,0.0f,0.0f,1.0f,0.0f);
-        glRotatef(xrot,1.0f,0.0f,0.0f);
-        glRotatef(yrot,0.0f,1.0f,0.0f);
-        glRotatef(zrot,0.0f,0.0f,1.0f);
-        glTranslatef(xx,yy,zz);
-
-
-
-
-       glPushMatrix();
-       glPopMatrix();
-       glutSwapBuffers();
-}
-
-void keyboard(unsigned char key,int x,int y)
-{
-
-     switch(key)
-    {
-    case 'w':
-    case 'W':
-        zz += 3.0;
-
-        break;
-    case 'd':
-    case 'D':
-        xx +=3.0;
-        break;
-    case 's':
-    case 'S':
-        zz +=-3.0;
-        break;
-
-    case 'a':
-    case 'A':
-        xx+=-3.0;
-        break;
-    case '7':
-           yy+=3.0;
-        break;
-    case '9':
-          yy+=-3.0;
-        break;
-    case '2':
-           xrot+=2.0;
-        break;
-    case '8':
-             xrot+=-2.0;
-        break;
-    case '6':
-           yrot+=2.0;
-        break;
-    case '4':
-             yrot+=-2.0;
-        break;
-
-    case '1':
-            zrot +=2.0;
-        break;
-    case '3':
-             zrot +=-2.0;
-        break;
-    case '5':
-        if(is_depth)
-        {
-            is_depth =0;
-            glDisable(GL_DEPTH_TEST);
-        } else{
-            is_depth=1;
-            glEnable(GL_DEPTH_TEST);
-
-        }
-
-
-
-
-
-
-
-
-
-
-
-    }
-
-    tampil();
 
 }
-void idle(){
-
-    if(!mousDown){
-
-        xrot += 0.3f;
-        yrot += 0.4f;
-    }
-
-    glutPostRedisplay();
-
-}
-
-void mouse(int button, int state, int x, int y){
-
-    if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN){
-
-        mousDown = true;
-        xdiff = x - yrot;
-        ydiff = -y + xrot;
-
-    }
-    else{
-        mousDown = false;
-    }
-
-}
-
-void mouseMotion(int x, int y){
-
-    if(mousDown){
-        yrot = x - xdiff;
-        xrot = y + ydiff;
-
-        glutPostRedisplay();
-    }
-
-}
-void ukuran(int lebar,int tinggi)
-{
-
-    if(tinggi == 0) tinggi =1;
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    gluPerspective(20.0,lebar/tinggi,5.0,500.0);
-    glTranslatef(0.0,-5.0,-150.0);
-    glMatrixMode(GL_MODELVIEW);
-}
-
