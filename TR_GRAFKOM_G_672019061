@@ -46,7 +46,7 @@ int main(int argc,char**argv)
     glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB);
     glutInitWindowSize(800,600);
     glutInitWindowPosition(250,80);
-    glutCreateWindow("Frankie - 672019165");
+    glutCreateWindow("672019049, 672019061, 672019165, 672019347");
     init();
 
     glutDisplayFunc(tampil);
