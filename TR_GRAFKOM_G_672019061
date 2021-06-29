@@ -1,5 +1,10 @@
-agnescherrlyy
 /*
+    Nama:
+    Frankie
+    Angnes
+    Nodas
+    Afi
+
  * GLUT Shapes Demo
  *
  * Written by Nigel Stewart November 2003
@@ -220,4 +225,5 @@ void ukuran(int lebar,int tinggi)
     glTranslatef(0.0,-5.0,-150.0);
     glMatrixMode(GL_MODELVIEW);
 }
+
 
