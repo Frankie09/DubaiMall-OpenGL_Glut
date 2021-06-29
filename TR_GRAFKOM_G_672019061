@@ -96,10 +96,10 @@ void tampil(void)
 
         glColor3f(1,1,1);
         glBegin(GL_POLYGON);
-            glVertex3f(-40,-15,10);
-            glVertex3f(40,-15,10);
-            glVertex3f(40,-15,-50);
-            glVertex3f(-40,-15,-50);
+            glVertex3f(-80,-15,20);
+            glVertex3f(80,-15,20);
+            glVertex3f(80,-15,-80);
+            glVertex3f(-80,-15,-80);
         glEnd();
 
         //lingkaran besar
@@ -114,7 +114,45 @@ void tampil(void)
         //lingkaran pojok
         cylinder(6,100,39,-10,-15,-4,-15,-4);
 
+ glBegin(GL_QUADS);
+        glColor3f(1.0,0.0,0.0);
+        glVertex3f(-5,0,-12);
+         glVertex3f(-5,-15,-12);
+          glVertex3f(-25,-15,-23);
+           glVertex3f(-25,0,-23);
+           glEnd();
 
+             glBegin(GL_QUADS);
+        glColor3f(1.0,0.0,0.0);
+        glVertex3f(20,0,-8);
+         glVertex3f(20,-15,-8);
+          glVertex3f(0,-15,-12);
+           glVertex3f(0,0,-12);
+           glEnd();
+
+              glBegin(GL_QUADS);
+        glColor3f(1.0,0.0,0.0);
+        glVertex3f(34,-4,-13);
+         glVertex3f(34,-15,-13);
+          glVertex3f(25,-15,-12);
+           glVertex3f(25,-4,-12);
+           glEnd();
+
+                 glBegin(GL_QUADS);
+        glColor3f(1.0,0.0,0.0);
+        glVertex3f(45,-5,-70);
+         glVertex3f(45,-15,-70);
+          glVertex3f(44,-15,-12);
+           glVertex3f(44,-5,-12);
+           glEnd();
+
+
+                 glBegin(GL_QUADS);
+        glColor3f(1.0,0.0,0.0);
+        glVertex3f(45,-5,-70);
+         glVertex3f(45,-15,-70);
+          glVertex3f(-20,-15,-70);
+           glVertex3f(-20,-5,-70);
 
        glPushMatrix();
        glPopMatrix();
