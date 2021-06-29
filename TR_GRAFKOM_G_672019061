@@ -1,36 +1,392 @@
-#include<windows.h>
+
+/*
+    Nama:
+    Frankie
+    Agnes
+    Nodas
+    Afi
+ */
+#include <windows.h>
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#else
 #include <GL/glut.h>
+#endif
+
+#include <math.h>
 #include <stdlib.h>
-#include <stdio.h>
+
+const double PI = 3.14;
+
+void init(void);
+void tampil(void);
+void keyboard(unsigned char,int,int);
+void ukuran(int,int);
+void mouseMotion(int x, int y);
+void mouse(int button, int state, int x, int y);
+void cylinder(float radius,float jumlah_titik,float x_tengah,float z_tengah,float alas,float tutupatas,float tinggi,float triangle_tinggi, float a, float b, float c, float d, float a1, float b1, float c1, float d1);
+void setengahlingkaran(float radius, float jumlah_titik, float y_tengah, float z_tengah, float alas, float tutupatas, float tinggi);void setengahlingkaran(float radius, float jumlah_titik, float y_tengah, float z_tengah, float alas, float tutupatas, float tinggi);void setengahlingkaran(float radius, float jumlah_titik, float y_tengah, float z_tengah, float alas, float tutupatas, float tinggi);
+void setengahlingkaran1(float radius, float jumlah_titik, float y_tengah, float z_tengah, float alas, float tutupatas, float tinggi);void setengahlingkaran(float radius, float jumlah_titik, float y_tengah, float z_tengah, float alas, float tutupatas, float tinggi);void setengahlingkaran(float radius, float jumlah_titik, float y_tengah, float z_tengah, float alas, float tutupatas, float tinggi);
+void dindingmall(float a, float b, float c, float d, float e, float f);
+
+float xrot = 0.0f;
+float yrot = 0.0f;
+float zrot = 0.0f;
+float xx= 0.0;
+float yy = 0.0;
+float zz = 0.0;
+float xdiff = 0.0f;
+float ydiff = 0.0f;
+bool mousDown = false;
+int is_depth;
 
 
-void Myinit(void);
-void Display(void);
-
-
-main(int argc, char** argv)
+int main(int argc,char**argv)
 {
-	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_SINGLE| GLUT_RGB);
-	glutInitWindowSize(600,480);
-	glutInitWindowPosition(350,150);
-	glutCreateWindow("MALL");
-	glutDisplayFunc(Display);
-	myInit();
-	glutMainLoop();
+
+    glutInit(&argc,argv);
+    glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB);
+    glutInitWindowSize(800,600);
+    glutInitWindowPosition(250,80);
+    glutCreateWindow("672019049, 672019061, 672019165, 672019347");
+    init();
+
+    glutDisplayFunc(tampil);
+    glutKeyboardFunc(keyboard);
+    glutReshapeFunc(ukuran);
+    glutMouseFunc(mouse);
+    glutMotionFunc(mouseMotion);
+
+    glutIdleFunc(tampil);
+    glutMainLoop();
+    return 0;
 }
 
-void Myinit(void){
+void init(void)
+{
 
-  glClearColor(1.0,1.0,1.0,0.0);
-  glColor3f(0.0f, 0.0f, 0.0f);
- 	glPointSize(4.0);
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	gluOrtho2D(0.0, 20.0, 0.0, 20.0);
+    glClearColor(0.0,0.0,0.0,0.0);
+    glMatrixMode(GL_PROJECTION);
+
+    glEnable(GL_DEPTH_TEST);
+    is_depth = 1;
+    glMatrixMode(GL_MODELVIEW);
+    glPointSize(9.0);
+    glLineWidth(6.0f);
 
 }
-void Display(void){
+
+void tampil(void)
+{
+
+    if(is_depth)
+        glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+
+    else
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+        glLoadIdentity();
+        gluLookAt(0.0f,0.0f,3.0f,0.0f,0.0f,0.0f,0.0f,1.0f,0.0f);
+        glRotatef(xrot,1.0f,0.0f,0.0f);
+        glRotatef(yrot,0.0f,1.0f,0.0f);
+        glRotatef(zrot,0.0f,0.0f,1.0f);
+        glTranslatef(xx,yy,zz);
 
 
+        //bawahAlas
+
+        glColor3f(1,1,1);
+        glBegin(GL_POLYGON);
+            glVertex3f(-40,-15,10);
+            glVertex3f(40,-15,10);
+            glVertex3f(40,-15,-50);
+            glVertex3f(-40,-15,-50);
+        glEnd();
+
+        //lingkaran besar
+        cylinder(8,100,-27,-28,-15,5,-15,5,255/255.f,206/255.f,43/255.f,1,222/255.f,222/255.f,222/255.f,1);
+        cylinder(5,100,-27,-28,6,5,5,6,255/255.f,206/255.f,43/255.f,1,222/255.f,222/255.f,222/255.f,0.8);
+
+        //lingkaran2
+        cylinder(5,100,-3,-15,-15,0,-15,0,255/255.f,206/255.f,43/255.f,1,222/255.f,222/255.f,222/255.f,1);
+        cylinder(1,100,-3,-15,0,0.8,0.8,0,255/255.f,206/255.f,43/255.f,1,222/255.f,222/255.f,222/255.f,0.8);
+
+
+        cylinder(5,100,21,-10,-15,0,-15,0,255/255.f,206/255.f,43/255.f,1,222/255.f,222/255.f,222/255.f,1);
+        cylinder(1,100,21,-10,0,0.8,0.8,0,255/255.f,206/255.f,43/255.f,1,222/255.f,222/255.f,222/255.f,1);
+
+        //lingkaran pojok
+        cylinder(6,100,39,-10,-15,-4,-15,-4,255/255.f,206/255.f,43/255.f,1,222/255.f,222/255.f,222/255.f,1);
+        cylinder(1,100,39,-10,-4,-3,-3,-4,255/255.f,206/255.f,43/255.f,1,222/255.f,222/255.f,222/255.f,1);
+        //setengahlingkaran(5,100,-3,-15,-15,0,-15);
+        //setengahlingkaran1(5,100,-3,-15,-15,0,-15);
+
+        dindingmall(-27,-3,-36,-27,-65,-15);
+        dindingmall(-27,-3,-65,39,-65,-15);
+        dindingmall(21,-3,-15,21,-65,-15);
+        dindingmall(39,-3,-15,39,-65,-15);
+
+        dindingmall(39,-3,-15,39,-65,-15);
+        dindingmall(39,-3,-15,39,-65,-15);
+
+
+            /*
+    1=a,    3=b,    0=c,    2=d,    8=e,    5=f
+
+    1,3,0
+    2,3,8
+    2,5,8
+    1,5,0
+
+    glVertex3f(a,b,c);
+    glVertex3f(d,b,e);
+    glVertex3f(d,f,e);
+    glVertex3f(a,f,c);
+
+    */
+       glPushMatrix();
+       glPopMatrix();
+       glutSwapBuffers();
+}
+
+void keyboard(unsigned char key,int x,int y)
+{
+
+     switch(key)
+    {
+    case 'w':
+    case 'W':
+        zz += 3.0;
+
+        break;
+    case 'd':
+    case 'D':
+        xx +=3.0;
+        break;
+    case 's':
+    case 'S':
+        zz +=-3.0;
+        break;
+
+    case 'a':
+    case 'A':
+        xx+=-3.0;
+        break;
+    case '7':
+           yy+=3.0;
+        break;
+    case '9':
+          yy+=-3.0;
+        break;
+    case '2':
+           xrot+=2.0;
+        break;
+    case '8':
+             xrot+=-2.0;
+        break;
+    case '6':
+           yrot+=2.0;
+        break;
+    case '4':
+             yrot+=-2.0;
+        break;
+
+    case '1':
+            zrot +=2.0;
+        break;
+    case '3':
+             zrot +=-2.0;
+        break;
+    case '5':
+        if(is_depth)
+        {
+            is_depth =0;
+            glDisable(GL_DEPTH_TEST);
+        } else{
+            is_depth=1;
+            glEnable(GL_DEPTH_TEST);
+
+        }
+
+    }
+
+    tampil();
+
+}
+void idle(){
+
+    if(!mousDown){
+
+        xrot += 0.3f;
+        yrot += 0.4f;
+    }
+
+    glutPostRedisplay();
+
+}
+
+void mouse(int button, int state, int x, int y){
+
+    if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN){
+
+        mousDown = true;
+        xdiff = x - yrot;
+        ydiff = -y + xrot;
+
+    }
+    else{
+        mousDown = false;
+    }
+
+}
+
+void mouseMotion(int x, int y){
+
+    if(mousDown){
+        yrot = x - xdiff;
+        xrot = y + ydiff;
+
+        glutPostRedisplay();
+    }
+
+}
+
+
+void dindingmall(float a, float b, float c, float d, float e, float f){
+
+    /*
+    1=a,    3=b,    0=c,    2=d,    8=e,    5=f
+
+    1,3,0
+    2,3,8
+    2,5,8
+    1,5,0
+    */
+    glBegin(GL_POLYGON);
+        glVertex3f(a,b,c);
+        glVertex3f(d,b,e);
+        glVertex3f(d,f,e);
+        glVertex3f(a,f,c);
+    glEnd();
+
+}
+
+void cylinder(float radius,float jumlah_titik,float x_tengah,float z_tengah,float alas,float tutupatas,float tinggi,float triangle_tinggi, float a, float b, float c, float d, float a1, float b1, float c1, float d1){
+
+    glColor4f(a,b,c,d);
+    glBegin(GL_TRIANGLE_STRIP);
+    for(int a = 0; a <= 180; a++){
+        float sudut = a * (2 * PI/jumlah_titik);
+        float x = x_tengah + radius * cos(sudut);
+        float z = z_tengah + radius * sin(sudut);
+        glVertex3f(x, tinggi, z);
+        glVertex3f(x,triangle_tinggi,z);
+    }
+    glEnd();
+
+    glColor4f(a1,b1,c1,d1);
+    glBegin(GL_POLYGON);
+        for(int a = triangle_tinggi; a <= 180; a++){
+        float sudut = a * (2 * PI/jumlah_titik);
+        float x = x_tengah + radius * cos(sudut);
+        float z = z_tengah + radius * sin(sudut);
+        glVertex3f(x, tutupatas, z);
+    }
+    glEnd();
+
+    glBegin(GL_POLYGON);
+        for(int a = triangle_tinggi; a <= 180; a++){
+        float sudut = a * (2 * PI/jumlah_titik);
+        float x = x_tengah + radius * cos(sudut);
+        float z = z_tengah + radius * sin(sudut);
+        glVertex3f(x,alas, z);
+    }
+    glEnd();
+}
+
+/*
+void setengahlingkaran(float radius, float jumlah_titik, float y_tengah, float z_tengah, float alas, float tutupatas, float tinggi){
+
+    glColor3f(1,0,0);
+    glBegin(GL_TRIANGLE_STRIP);
+    for(int a = 0; a <= 180; a++){
+        float sudut = a * (2 * PI/jumlah_titik);
+        float y = y_tengah + radius * cos(sudut);
+        float z = z_tengah + radius * sin(sudut);
+        glVertex3f(tinggi, y, z);
+        glVertex3f(0,y,z);
+    }
+    glEnd();
+
+    glColor3f(0,1,0);
+    glBegin(GL_POLYGON);
+        for(int a = 0; a <= 180; a++){
+        float sudut = a * (2 * PI/jumlah_titik);
+        float y = y_tengah + radius * cos(sudut);
+        float z = z_tengah + radius * sin(sudut);
+        glVertex3f(tutupatas, y, z);
+    }
+    glEnd();
+
+    glColor3f(0,1,0);
+    glBegin(GL_POLYGON);
+        for(int a = 0; a <= 180; a++){
+        float sudut = a * (2 * PI/jumlah_titik);
+        float y = y_tengah + radius * cos(sudut);
+        float z = z_tengah + radius * sin(sudut);
+        glVertex3f(alas, y, z);
+    }
+    glEnd();
+}
+
+
+void setengahlingkaran1(float radius, float jumlah_titik, float x_tengah, float y_tengah, float alas, float tutupatas, float tinggi){
+
+    glColor3f(1,0,0);
+    glBegin(GL_TRIANGLE_STRIP);
+    for(int a = 0; a <= 180; a++){
+        float sudut = a * (2 * PI/jumlah_titik);
+        float x = x_tengah + radius * cos(sudut);
+        float y = y_tengah + radius * sin(sudut);
+        glVertex3f(x, y, tinggi);
+        glVertex3f(x,y,0);
+    }
+    glEnd();
+
+    glColor3f(0,1,0);
+    glBegin(GL_POLYGON);
+        for(int a = 0; a <= 180; a++){
+        float sudut = a * (2 * PI/jumlah_titik);
+        float x = x_tengah + radius * cos(sudut);
+        float y = y_tengah + radius * sin(sudut);
+        glVertex3f(x, y, tutupatas);
+    }
+    glEnd();
+
+    glColor3f(0,1,0);
+    glBegin(GL_POLYGON);
+        for(int a = 0; a <= 180; a++){
+        float sudut = a * (2 * PI/jumlah_titik);
+        float x = x_tengah + radius * cos(sudut);
+        float y = y_tengah + radius * sin(sudut);
+        glVertex3f(x, y, alas);
+    }
+    glEnd();
+}
+*/
+
+
+
+void ukuran(int lebar,int tinggi)
+{
+
+    if(tinggi == 0) tinggi =1;
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluPerspective(20.0,lebar/tinggi,5.0,700.0);
+    glTranslatef(0.0,-5.0,-300.0);
+    glMatrixMode(GL_MODELVIEW);
 }
