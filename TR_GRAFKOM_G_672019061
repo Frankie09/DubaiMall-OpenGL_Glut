@@ -153,6 +153,7 @@ void tampil(void)
          glVertex3f(45,-15,-70);
           glVertex3f(-20,-15,-70);
            glVertex3f(-20,-5,-70);
+           glEnd();
 
        glPushMatrix();
        glPopMatrix();
