@@ -25,9 +25,10 @@ void ukuran(int,int);
 void mouseMotion(int x, int y);
 void mouse(int button, int state, int x, int y);
 void cylinder(float radius,float jumlah_titik,float x_tengah,float z_tengah,float alas,float tutupatas,float tinggi,float triangle_tinggi, float a, float b, float c, float d, float a1, float b1, float c1, float d1);
-void setengahlingkaran1(float radius,float jumlah_titik,float y_tengah,float z_tengah,float alas,float tutupatas,float tinggi,float triangle_tinggi, float a, float b, float c, float d, float a1, float b1, float c1, float d1);
+void setengahlingkaran(float radius,float jumlah_titik,float y_tengah,float z_tengah,float alas,float tutupatas,float tinggi,float triangle_tinggi, float a, float b, float c, float d, float a1, float b1, float c1, float d1);
 void setengahlingkaran1(float radius,float jumlah_titik,float x_tengah,float y_tengah,float alas,float tutupatas,float tinggi,float triangle_tinggi, float a, float b, float c, float d, float a1, float b1, float c1, float d1);
 void dindingmall(float a, float b, float c, float d, float e, float f);
+void lingkaran(float radius,float jumlah_titik,float x_tengah,float z_tengah, float tutup_atas, float a1, float b1, float c1, float d1);
 
 float xrot = 0.0f;
 float yrot = 0.0f;
@@ -115,51 +116,51 @@ void tampil(void)
         glEnd();
 
         //lingkaran besar
-        cylinder(8,100,-27,-28,-15,5,-15,5,255/255.f,206/255.f,43/255.f,1,222/255.f,222/255.f,222/255.f,1);
-        cylinder(3,100,-20,-45,-15,0,-15,0,255/255.f,206/255.f,43/255.f,1,222/255.f,222/255.f,222/255.f,1);
-        cylinder(5,100,-27,-28,6,5,5,6,255/255.f,206/255.f,43/255.f,1,222/255.f,222/255.f,222/255.f,0.8);
+        cylinder(8,100,-27,-28,-15,5,-15,5,255/255.f,236/255.f,134/255.f,1,230/255.f,213/255.f,201/255.f,1);
+        lingkaran(8,100,-27,-28,-3,115/255.f,135/255.f,146/255.f,1);
+        cylinder(3,100,-20,-45,-15,0,-15,0,255/255.f,236/255.f,134/255.f,1,115/255.f,135/255.f,146/255.f,1);
+        cylinder(5,100,-27,-28,6,5,5,6,255/255.f,236/255.f,134/255.f,1,115/255.f,135/255.f,146/255.f,0.8);
 
         //lingkaran2
-        cylinder(5,100,-3,-15,-15,0,-15,0,255/255.f,206/255.f,43/255.f,1,222/255.f,222/255.f,222/255.f,1);
-        cylinder(3,100,-3,-30,-15,0,-15,0,255/255.f,206/255.f,43/255.f,1,222/255.f,222/255.f,222/255.f,1);
+        cylinder(5,100,-3,-15,-15,0,-15,0,255/255.f,236/255.f,134/255.f,1,115/255.f,135/255.f,146/255.f,1);
+        cylinder(3,100,-3,-30,-15,0,-15,0,255/255.f,236/255.f,134/255.f,1,115/255.f,135/255.f,146/255.f,1);
         //stengah lingkaran z
 
-        cylinder(1,100,-3,-15,0,0.8,0.8,0,255/255.f,206/255.f,43/255.f,1,222/255.f,222/255.f,222/255.f,0.8);
+        cylinder(1,100,-3,-15,0,0.8,0.8,0,255/255.f,236/255.f,134/255.f,1,115/255.f,135/255.f,146/255.f,0.8);
 
 
-        cylinder(5,100,21,-10,-15,0,-15,0,255/255.f,206/255.f,43/255.f,1,222/255.f,222/255.f,222/255.f,1);
-        cylinder(3,100,21,-30,-15,0,-15,0,255/255.f,206/255.f,43/255.f,1,222/255.f,222/255.f,222/255.f,1);
+        cylinder(5,100,21,-10,-15,0,-15,0,255/255.f,236/255.f,134/255.f,1,115/255.f,135/255.f,146/255.f,1);
+        cylinder(3,100,21,-30,-15,0,-15,0,255/255.f,236/255.f,134/255.f,1,115/255.f,135/255.f,146/255.f,1);
         //atap
-        setengahlingkaran1(5,360,21,0,-55,-40,-55,-40,255/255.f,206/255.f,43/255.f,1,222/255.f,222/255.f,222/255.f,1);
-        cylinder(1,100,21,-10,0,0.8,0.8,0,255/255.f,206/255.f,43/255.f,1,222/255.f,222/255.f,222/255.f,1);
+        setengahlingkaran1(5,360,21,-3,-55,-40,-55,-40,230/255.f,213/255.f,201/255.f,1,115/255.f,135/255.f,146/255.f,0.9);
+        cylinder(1,100,21,-10,0,0.8,0.8,0,255/255.f,236/255.f,134/255.f,1,115/255.f,135/255.f,146/255.f,1);
 
         //lingkaran pojok
-        cylinder(6,100,39,-10,-15,-4,-15,-4,255/255.f,206/255.f,43/255.f,1,222/255.f,222/255.f,222/255.f,1);
-        cylinder(1,100,39,-10,-4,-3,-3,-4,255/255.f,206/255.f,43/255.f,1,222/255.f,222/255.f,222/255.f,1);
+        cylinder(6,100,39,-10,-15,-4,-15,-4,255/255.f,236/255.f,134/255.f,1,115/255.f,135/255.f,146/255.f,1);
+        cylinder(1,100,39,-10,-4,-3,-3,-4,255/255.f,236/255.f,134/255.f,1,115/255.f,135/255.f,146/255.f,1);
         //setengahlingkaran(5,100,-3,-15,-15,0,-15);
         //setengahlingkaran1(5,100,-3,-15,-15,0,-15);
 
-        glColor3f(1,0,0);
+        glColor3f(251/255.f,221/255.f,168/255.f);
         dindingmall(-27,-3,-36,-27,-65,-15);
         //
-        glColor3f(1,1,0);
         //1
         dindingmall(-20,-3,-25,-7,-18,-15);
 
-        glColor3f(1,0,1);
         dindingmall(-27,-3,-65,39,-65,-15);
 
         //3
         dindingmall(26,-3,-10,33,-10,-15);
         //2
         dindingmall(2,-3,-15,16,-10,-15);
-        glColor3f(0,0,1);
-        dindingmall(21,-3,-15,21,-65,-15);
-        glColor3f(0,1,1);
-        dindingmall(39,-3,-15,39,-65,-15);
+
+
+        dindingmall(39,-3,-16,39,-65,-15);
 
         //dindingmall(-27,-3,-,39,-65,-3);
         //dindingmall(39,-3,-15,39,-65,-15);
+
+
 
 
             /*
@@ -307,7 +308,7 @@ void cylinder(float radius,float jumlah_titik,float x_tengah,float z_tengah,floa
 
     glColor4f(a,b,c,d);
     glBegin(GL_TRIANGLE_STRIP);
-    for(int a = 0; a <= 180; a++){
+    for(int a = 0; a <= 360; a++){
         float sudut = a * (2 * PI/jumlah_titik);
         float x = x_tengah + radius * cos(sudut);
         float z = z_tengah + radius * sin(sudut);
@@ -318,7 +319,7 @@ void cylinder(float radius,float jumlah_titik,float x_tengah,float z_tengah,floa
 
     glColor4f(a1,b1,c1,d1);
     glBegin(GL_POLYGON);
-        for(int a = triangle_tinggi; a <= 180; a++){
+        for(int a = 0; a <= 180; a++){
         float sudut = a * (2 * PI/jumlah_titik);
         float x = x_tengah + radius * cos(sudut);
         float z = z_tengah + radius * sin(sudut);
@@ -341,7 +342,7 @@ void setengahlingkaran(float radius,float jumlah_titik,float y_tengah,float z_te
 
     glColor4f(a,b,c,d);
     glBegin(GL_TRIANGLE_STRIP);
-    for(int a = 0; a <= 180; a++){
+    for(int a = 0; a <= 90; a++){
         float sudut = a * (2 * PI/jumlah_titik);
         float y = y_tengah + radius * cos(sudut);
         float z = z_tengah + radius * sin(sudut);
@@ -404,7 +405,18 @@ void setengahlingkaran1(float radius,float jumlah_titik,float x_tengah,float y_t
     glEnd();
 }
 
+void lingkaran(float radius,float jumlah_titik,float x_tengah,float z_tengah, float tutup_atas, float a1, float b1, float c1, float d1){
 
+    glColor4f(a1,b1,c1,d1);
+    glBegin(GL_POLYGON);
+        for(int a = 0; a <= 180; a++){
+        float sudut = a * (2 * PI/jumlah_titik);
+        float x = x_tengah + radius * cos(sudut);
+        float z = z_tengah + radius * sin(sudut);
+        glVertex3f(x, tutup_atas, z);
+    }
+    glEnd();
+}
 
 
 void ukuran(int lebar,int tinggi)
@@ -417,4 +429,3 @@ void ukuran(int lebar,int tinggi)
     glTranslatef(0.0,-5.0,-300.0);
     glMatrixMode(GL_MODELVIEW);
 }
-
