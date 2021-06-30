@@ -101,9 +101,17 @@ void tampil(void)
         glColor3f(1,1,1);
         glBegin(GL_POLYGON);
             glVertex3f(-40,-15,10);
-            glVertex3f(40,-15,10);
-            glVertex3f(40,-15,-50);
-            glVertex3f(-40,-15,-50);
+            glVertex3f(50,-15,10);
+            glVertex3f(50,-15,-68);
+            glVertex3f(-40,-15,-68);
+        glEnd();
+
+        glColor3f(0,0,0.1);
+        glBegin(GL_POLYGON);
+            glVertex3f(-40,-14.9,8);
+            glVertex3f(50,-14.9,8);
+            glVertex3f(50,-14.9,-2);
+            glVertex3f(-40,-14.9,-2);
         glEnd();
 
         //lingkaran besar
@@ -124,13 +132,27 @@ void tampil(void)
         //setengahlingkaran(5,100,-3,-15,-15,0,-15);
         //setengahlingkaran1(5,100,-3,-15,-15,0,-15);
 
+        glColor3f(1,0,0);
         dindingmall(-27,-3,-36,-27,-65,-15);
+        //
+        glColor3f(1,1,0);
+        //1
+        dindingmall(-20,-3,-25,-7,-18,-15);
+
+        glColor3f(1,0,1);
         dindingmall(-27,-3,-65,39,-65,-15);
+
+        //3
+        dindingmall(26,-3,-10,33,-10,-15);
+        //2
+        dindingmall(2,-3,-15,16,-10,-15);
+        glColor3f(0,0,1);
         dindingmall(21,-3,-15,21,-65,-15);
+        glColor3f(0,1,1);
         dindingmall(39,-3,-15,39,-65,-15);
 
-        dindingmall(39,-3,-15,39,-65,-15);
-        dindingmall(39,-3,-15,39,-65,-15);
+        //dindingmall(-27,-3,-,39,-65,-3);
+        //dindingmall(39,-3,-15,39,-65,-15);
 
 
             /*
@@ -390,3 +412,4 @@ void ukuran(int lebar,int tinggi)
     glTranslatef(0.0,-5.0,-300.0);
     glMatrixMode(GL_MODELVIEW);
 }
+
