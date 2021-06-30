@@ -181,11 +181,40 @@ void tampil(void)
         cylinder(1,100,-32,-78,18,23,23,18,255/255.f,206/255.f,43/255.f,1,222/255.f,222/255.f,222/255.f,1);
         cylinder(0.5,100,-32,-78,23,30,30,23,255/255.f,206/255.f,43/255.f,1,222/255.f,222/255.f,222/255.f,1);
         
-        //atapmall kiri
-        atapmall(-55, -10, -40, -55, -65, 10);
+          //atapmall kanan
+            glBegin(GL_POLYGON);
+              glColor3f(1,0,0);
+        glVertex3f(39,-15, -65);
+        glVertex3f(39, -15, -10);
+        glVertex3f(17, -15, -10);
+        glVertex3f(-5, -15, -17.5);
+        glVertex3f(-27, -15, -29);
+        glVertex3f(-27, -15, -65);
+    glEnd();
+       glBegin(GL_POLYGON);
+        glVertex3f(39,-10, -65);
+        glVertex3f(39, -10, -10);
+        glVertex3f(17, -10, -10);
+           glVertex3f(-5, -10, -17.5);
+        glVertex3f(-27, -10, -29);
+        glVertex3f(-27, -10, -65);
+    glEnd();
+     glBegin(GL_POLYGON);
+      glColor3f(1,1,0);
+        glVertex3f(39,-5, -65);
+        glVertex3f(39, -5, -10);
+        glVertex3f(17, -5, -10);
+           glVertex3f(-5, -5, -17.5);
+        glVertex3f(-27, -5, -29);
+        glVertex3f(-27, -5, -65);
+    glEnd();
+
+
         
         //dindingmall(-27,-3,-,39,-65,-3);
         //dindingmall(39,-3,-15,39,-65,-15);
+        
+        
 
 
 
