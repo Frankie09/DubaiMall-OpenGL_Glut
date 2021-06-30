@@ -30,7 +30,7 @@ void setengahlingkaran1(float radius,float jumlah_titik,float x_tengah,float y_t
 void setengahlingkaran2(float radius,float jumlah_titik,float x_tengah,float y_tengah,float alas,float tutupatas,float tinggi,float triangle_tinggi, float a, float b, float c, float d, float a1, float b1, float c1, float d1);
 void dindingmall(float a, float b, float c, float d, float e, float f);
 void lingkaran(float radius,float jumlah_titik,float x_tengah,float z_tengah, float tutup_atas, float a1, float b1, float c1, float d1);
-
+void atapmall(float a, float b, float c, float d, float e, float f);
 float xrot = 0.0f;
 float yrot = 0.0f;
 float zrot = 0.0f;
