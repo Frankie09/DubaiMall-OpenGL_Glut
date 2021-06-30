@@ -160,13 +160,13 @@ void tampil(void)
         
         
         dindingmall(-27,-3,-65,-40,-65,-15);//DINDING BELAKANG TAMBAHAN
-       
-        dindingmall(-55,-3,-30,-40,-65,-15);//DINDING SAMPING
-     
-        dindingmall(-55,-3,-33,-27,-27,-15);//DINDING DEPAN
+
+        dindingmall(-57,-3,-38,-40,-65,-15);//DINDING SAMPING
+
+        dindingmall(-50,-3,-33,-27,-33,-15);//DINDING DEPAN
 
         //DINDING
-        cylinder(5,100,-55,-35,-15,0,-15,0,255/255.f,206/255.f,43/255.f,1,222/255.f,222/255.f,222/255.f,1);
+        cylinder(5,100,-51,-38,-15,0,-15,0,255/255.f,206/255.f,43/255.f,1,222/255.f,222/255.f,222/255.f,1);
 
 
         //ATAP
