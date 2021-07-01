@@ -265,6 +265,24 @@ void tampil(void)
         //dindingmall(39,-3,-15,39,-65,-15);
 
 
+	glBegin(GL_POLYGON);
+        glColor4f(115/255.f,135/255.f,146/255.f,1);
+        glVertex3f(-25,-5, -65);
+        glVertex3f(-25, -5, -33);
+        glVertex3f(-50, -5, -33);
+        glVertex3f(-55, -5, -38);
+        glVertex3f(-40,- 5 ,-65);
+    glEnd();
+
+
+    glBegin(GL_POLYGON);
+        glColor4f(115/255.f,135/255.f,146/255.f,1);
+        glVertex3f(-25,-10, -65);
+        glVertex3f(-25, -10, -33);
+        glVertex3f(-50, -10, -33);
+        glVertex3f(-55, -10, -38);
+        glVertex3f(-40,- 10 ,-65);
+    glEnd();
 
 
 
