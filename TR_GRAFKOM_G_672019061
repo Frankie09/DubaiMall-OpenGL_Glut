@@ -194,9 +194,23 @@ void tampil(void)
         setengahlingkaran2(4,-360,-77,-32,-15,16,16,-13,255/255.f,236/255.f,134/255.f,0.5,115/255.f,135/255.f,146/255.f,1);
         setengahlingkaran2(4,-360,-77,-32,-15,-13,-13,-15,255/255.f,236/255.f,134/255.f,1,115/255.f,135/255.f,146/255.f,1);
 
+
+
         cylinder(1,100,-32,-78,18,23,23,18,255/255.f,206/255.f,43/255.f,1,222/255.f,222/255.f,222/255.f,1);
         cylinder(0.5,100,-32,-78,23,30,30,23,255/255.f,206/255.f,43/255.f,1,222/255.f,222/255.f,222/255.f,1);
         //atapmall kanan
+
+
+        //Atap Fixxxx
+    glBegin(GL_POLYGON);
+        glColor4f(115/255.f,135/255.f,146/255.f,1);
+        glVertex3f(39,-5, -65);
+        glVertex3f(39, -5, -10);
+        glVertex3f(17, -5, -10);
+        glVertex3f(-5, -5, -17.5);
+        glVertex3f(-27, -5, -29);
+        glVertex3f(-27, -5, -65);
+    glEnd();
 
     glBegin(GL_POLYGON);
     glColor4f(242/255.f,242/255.f,242/255.f,1);
@@ -248,16 +262,7 @@ void tampil(void)
     pagarmall(-23,-10,-65,-23,-42,-8);
 
 
-    //Atap Fixxxx
-    glBegin(GL_POLYGON);
-        glColor4f(115/255.f,135/255.f,146/255.f,1);
-        glVertex3f(39,-5, -65);
-        glVertex3f(39, -5, -10);
-        glVertex3f(17, -5, -10);
-        glVertex3f(-5, -5, -17.5);
-        glVertex3f(-27, -5, -29);
-        glVertex3f(-27, -5, -65);
-    glEnd();
+
 
 
 
@@ -276,7 +281,7 @@ void tampil(void)
 
 
     glBegin(GL_POLYGON);
-        glColor4f(115/255.f,135/255.f,146/255.f,1);
+    glColor4f(242/255.f,242/255.f,242/255.f,1);
         glVertex3f(-25,-10, -65);
         glVertex3f(-25, -10, -33);
         glVertex3f(-50, -10, -33);
