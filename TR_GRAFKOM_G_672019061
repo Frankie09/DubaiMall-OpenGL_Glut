@@ -104,18 +104,18 @@ void tampil(void)
 
         glColor3f(1,1,1);
         glBegin(GL_POLYGON);
-            glVertex3f(-40,-15,10);
+            glVertex3f(-60,-15,10);
             glVertex3f(50,-15,10);
-            glVertex3f(50,-15,-68);
-            glVertex3f(-40,-15,-68);
+            glVertex3f(50,-15,-80);
+            glVertex3f(-60,-15,-80);
         glEnd();
 
         glColor3f(0,0,0.1);
         glBegin(GL_POLYGON);
-            glVertex3f(-40,-14.9,8);
+            glVertex3f(-60,-14.9,8);
             glVertex3f(50,-14.9,8);
             glVertex3f(50,-14.9,-2);
-            glVertex3f(-40,-14.9,-2);
+            glVertex3f(-60,-14.9,-2);
         glEnd();
 
         //lingkaran besar
