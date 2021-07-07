@@ -72,7 +72,7 @@ void objekBergerak2()
 {
     // badan mobil
         glPushMatrix();
-        glColor3f(1, 1, 1);
+       glColor3f(0, 1, 0);
         glTranslatef(zpos, -14.5, 5.0);
         glScalef(3.0, 1.0, 1.5);
         glutSolidCube(0.9);
@@ -83,7 +83,7 @@ void objekBergerak3()
 {
     //depan mobil
         glPushMatrix();
-        glColor3f(1, 1, 1);
+       glColor3f(0, 1, 0);
         glTranslatef(zpos + 1, -15.0, 5.0);
         glScalef(2.0, 0.5, 1.4);
         glutSolidCube(0.9);
@@ -94,7 +94,7 @@ void objekBergerak4()
 {
     //belakang mobil
         glPushMatrix();
-        glColor3f(1, 1, 1);
+       glColor3f(0, 1, 0);
         glTranslatef(zpos - 0.5, -15.0, 5.0);
         glScalef(2.4, 0.5, 1.4);
         glutSolidCube(0.9);
