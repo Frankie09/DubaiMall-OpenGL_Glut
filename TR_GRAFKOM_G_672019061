@@ -254,6 +254,70 @@ void tampil(void)
             glVertex3f(-16.8,-9,-22.9);
         glEnd();
 
+        //pintu
+        glBegin(GL_LINE_STRIP);
+            glColor3f(115/255.f,135/255.f,146/255.f);
+            glVertex3f(-13.9,-15,-21.4);
+            glVertex3f(-13.9,-12,-21.4);
+            glVertex3f(-12.4,-12,-20.6);
+            glVertex3f(-12.4,-15,-20.6);
+        glEnd();
+        glBegin(GL_LINE_STRIP);
+            glColor3f(115/255.f,135/255.f,146/255.f);
+            glVertex3f(-9.5,-15,-19.2);
+            glVertex3f(-9.5,-12,-19.2);
+            glVertex3f(-8,-12,-18.5);
+            glVertex3f(-8,-15,-18.5);
+            glEnd();
+        glBegin(GL_LINE_STRIP);
+            glColor3f(115/255.f,135/255.f,146/255.f);
+            glVertex3f(-11.7,-15,-20.4);
+            glVertex3f(-11.7,-12,-20.4);
+            glVertex3f(-10.2,-12,-19.6);
+            glVertex3f(-10.2,-15,-19.6);
+            glEnd();
+        glBegin(GL_LINE_STRIP);
+            glColor3f(115/255.f,135/255.f,146/255.f);
+            glVertex3f(-16.1,-15,-22.5);
+            glVertex3f(-16.1,-12,-22.5);
+            glVertex3f(-14.6,-12,-21.7);
+            glVertex3f(-14.6,-15,-21.7);
+        glEnd();
+        glBegin(GL_LINE_STRIP);
+            glColor3f(115/255.f,135/255.f,146/255.f);
+            glVertex3f(-18.3,-15,-23.7);
+            glVertex3f(-18.3,-12,-23.7);
+            glVertex3f(-16.8,-12,-22.9);
+            glVertex3f(-16.8,-15,-22.9);
+        glEnd();
+        glBegin(GL_QUADS);
+            glColor3f(0.0,0.0,0.0);
+            glVertex3f(-8,-12,-18.5);
+            glVertex3f(-9.5,-12,-19.2);
+            glVertex3f(-9.5,-15,-19.2);
+            glVertex3f(-8,-15,-18.5);
+
+            glVertex3f(-10.2,-12,-19.6);
+            glVertex3f(-11.7,-12,-20.4);
+            glVertex3f(-11.7,-15,-20.4);
+            glVertex3f(-10.2,-15,-19.6);
+
+            glVertex3f(-12.4,-12,-20.6);
+            glVertex3f(-13.9,-12,-21.4);
+            glVertex3f(-13.9,-15,-21.4);
+            glVertex3f(-12.4,-15,-20.6);
+
+            glVertex3f(-14.6,-12,-21.7);
+            glVertex3f(-16.1,-12,-22.5);
+            glVertex3f(-16.1,-15,-22.5);
+            glVertex3f(-14.6,-15,-21.7);
+
+            glVertex3f(-16.8,-12,-22.9);
+            glVertex3f(-18.3,-12,-23.7);
+            glVertex3f(-18.3,-15,-23.7);
+            glVertex3f(-16.8,-15,-22.9);
+        glEnd();
+
         //bawahAlas
 
         glColor3f(1,1,1);
