@@ -33,6 +33,84 @@ void lingkaran(float radius,float jumlah_titik,float x_tengah,float z_tengah, fl
 void atapmall(float a, float b, float c, float d, float e, float f);
 void pagarmall(float a, float b, float c, float d, float e, float f);
 void persegi(float x, float y, float z, float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3, float yy);
+void gedung(void);
+
+
+float zpos = -40;
+
+float r,g,b;
+
+
+
+void Idle()
+{
+    if(zpos<=40)
+    {
+        r = (rand()%9/8);
+        g = (rand()%8/8);
+        b = (rand()%9/8);
+    // moving speed
+        zpos += 0.06;
+    }
+
+
+    glutPostRedisplay();
+}
+
+void objekBergerak()
+{
+    // sirine
+        glPushMatrix();
+        glColor3f(r, g, b);
+        glTranslatef(zpos, -14.0, 5.0);
+        glScalef(1.5, 1.9, 5.0);
+        glutSolidCube(0.2);
+        glPopMatrix();
+}
+
+void objekBergerak2()
+{
+    // badan mobil
+        glPushMatrix();
+        glColor3f(1, 1, 1);
+        glTranslatef(zpos, -14.5, 5.0);
+        glScalef(3.0, 1.0, 1.5);
+        glutSolidCube(0.9);
+        glPopMatrix();
+}
+
+void objekBergerak3()
+{
+    //depan mobil
+        glPushMatrix();
+        glColor3f(1, 1, 1);
+        glTranslatef(zpos + 1, -15.0, 5.0);
+        glScalef(2.0, 0.5, 1.4);
+        glutSolidCube(0.9);
+        glPopMatrix();
+}
+
+void objekBergerak4()
+{
+    //belakang mobil
+        glPushMatrix();
+        glColor3f(1, 1, 1);
+        glTranslatef(zpos - 0.5, -15.0, 5.0);
+        glScalef(2.4, 0.5, 1.4);
+        glutSolidCube(0.9);
+        glPopMatrix();
+}
+
+void mobilPolisiMinecraft()
+{
+    objekBergerak();
+    objekBergerak2();
+    objekBergerak3();
+    objekBergerak4();
+}
+
+
+
 float xrot = 0.0f;
 float yrot = 0.0f;
 float zrot = 0.0f;
@@ -99,6 +177,9 @@ void tampil(void)
         glRotatef(zrot,0.0f,0.0f,1.0f);
         glTranslatef(xx,yy,zz);
 
+
+
+
 	//jendela
         glBegin(GL_QUADS);
             glColor3f(0.0,0.0,0.0);
@@ -135,6 +216,11 @@ void tampil(void)
             glVertex3f(50,-14.9,-2);
             glVertex3f(-60,-14.9,-2);
         glEnd();
+
+
+
+
+
 
         //lingkaran besar
         cylinder(8,100,-27,-28,-15,5,-13,5,255/255.f,236/255.f,134/255.f,1,230/255.f,213/255.f,201/255.f,1);
@@ -306,9 +392,15 @@ void tampil(void)
         glVertex3f(-55, -10, -38);
         glVertex3f(-40,- 10 ,-65);
     glEnd();
-
-
-
+//
+    for(int a = 0; a <= 3; a++){
+    for (int b = 0; b <= 3; b++){
+        glPushMatrix();
+            glTranslatef(a * 12.0f,0.0f,0.0f);
+            gedung();
+        glPopMatrix();
+            }
+    }
 
             /*
     1=a,    3=b,    0=c,    2=d,    8=e,    5=f
@@ -324,8 +416,10 @@ void tampil(void)
     glVertex3f(a,f,c);
 
     */
-       glPushMatrix();
-       glPopMatrix();
+    glPushMatrix();
+    mobilPolisiMinecraft();
+    Idle();
+    glPopMatrix();
        glutSwapBuffers();
 }
 
@@ -393,6 +487,31 @@ void keyboard(unsigned char key,int x,int y)
     tampil();
 
 }
+
+void gedung(void){
+
+ glPushMatrix();
+            glColor3f(1.0f, 1.0f, 0.5f);
+            glTranslatef(-10.0f, -10.0f, -75.0f);
+            glutSolidCube(9.0);
+            glTranslatef(0.0f, 5.0f, 0.0f);
+            glutSolidCube(9.0);
+            glTranslatef(0.0f, 5.0f, 0.0f);
+            glutSolidCube(9.0);
+            glTranslatef(0.0f, 4.5f, 0.0f);
+            glutSolidCube(9.0);
+            glTranslatef(0.0f, 4.0f, 0.0f);
+            glutSolidCube(8.0);
+            glTranslatef(0.0f, 3.5f, 0.0f);
+            glutSolidCube(7.0);
+            glTranslatef(0.0f, 2.0f, 0.0f);
+            glutSolidCube(5.0);
+    glPopMatrix();
+
+
+
+}
+
 void idle(){
 
     if(!mousDown){
