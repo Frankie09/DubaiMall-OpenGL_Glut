@@ -154,7 +154,7 @@ void init(void)
     is_depth = 1;
     glMatrixMode(GL_MODELVIEW);
     glPointSize(9.0);
-    glLineWidth(6.0f);
+    glLineWidth(3.0f);
 
 }
 
